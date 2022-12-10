@@ -1,0 +1,12 @@
+name: cluster-vm
+services:
+- type: org.apache.brooklyn.entity.group.DynamicCluster
+  initialSize: 5
+  memberSpec:
+    $brooklyn:entitySpec:
+      type: org.apache.brooklyn.entity.software.base.EmptySoftwareProcess
+      name: VM
+      provisioning.properties:
+        minRam: 8g
+        minCores: 4
+        minDisk: 100g
